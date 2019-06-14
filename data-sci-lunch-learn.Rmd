@@ -233,23 +233,64 @@ coef_mat2
 ```
 
 ### Plotting: `rethinking` base R vs `brms` with `ggplot2`
-Finally, here's the ggplot2 code to reproduce Figure 12.1.
+
+Here's base R and `ggplot2` code to reproduce Figure 12.1 of McElreath (2015).
 
 ```{r, fig.width = 5, fig.height = 4}
+## R code 12.5
+# extract Stan samples
+post <- rethinking::extract.samples(m12.2)
+
+# compute median intercept for each tank
+# also transform to probability with logistic
+d$propsurv.est <- logistic( apply( post$a_tank , 2 , median ) )
+
+# display raw proportions surviving in each tank
+plot( d$propsurv , ylim=c(0,1) , pch=16 , xaxt="n" ,
+      xlab="tank" , ylab="proportion survival" , col=rangi2 ,
+      main    = "Multilevel shrinkage!")
+axis( 1 , at=c(1,16,32,48) , labels=c(1,16,32,48) )
+
+# overlay posterior medians
+points( d$propsurv.est )
+
+# mark posterior median probability across tanks
+abline( h=logistic(median(post$a)) , lty=2 )
+
+# draw vertical dividers between tank densities
+abline( v=16.5 , lwd=0.5 )
+abline( v=32.5 , lwd=0.5 )
+text( 8 , 0 , "small tanks" )
+text( 16+8 , 0 , "medium tanks" )
+text( 32+8 , 0 , "large tanks" )
+
+```
+
+```{r, fig.width = 5, fig.height = 4}
+post <- brms::posterior_samples(b12.2, add_chain = T)
+
+post_mdn <- 
+  coef(b12.2, robust = T)$tank[, , ] %>% 
+  dplyr::as_tibble() %>% 
+  dplyr::bind_cols(d) %>%
+  dplyr::mutate(post_mdn = brms::inv_logit_scaled(Estimate))
+
+post_mdn
+
 post_mdn %>%
-  ggplot(aes(x = tank)) +
-  geom_hline(yintercept = inv_logit_scaled(median(post$b_Intercept)), linetype = 2, size = 1/4) +
-  geom_vline(xintercept = c(16.5, 32.5), size = 1/4) +
-  geom_point(aes(y = propsurv), color = "orange2") +
-  geom_point(aes(y = post_mdn), shape = 1) +
-  coord_cartesian(ylim = c(0, 1)) +
-  scale_x_continuous(breaks = c(1, 16, 32, 48)) +
-  labs(title    = "Multilevel shrinkage!",
+  ggplot2::ggplot(ggplot2::aes(x = tank)) +
+  ggplot2::geom_hline(yintercept = brms::inv_logit_scaled(median(post$b_Intercept)), linetype = 2, size = 1/4) +
+  ggplot2::geom_vline(xintercept = c(16.5, 32.5), size = 1/4) +
+  ggplot2::geom_point(ggplot2::aes(y = propsurv), color = "orange2") +
+  ggplot2::geom_point(ggplot2::aes(y = post_mdn), shape = 1) +
+  ggplot2::coord_cartesian(ylim = c(0, 1)) +
+  ggplot2::scale_x_continuous(breaks = c(1, 16, 32, 48)) +
+  ggplot2::labs(title    = "Multilevel shrinkage!",
        subtitle = "The empirical proportions are in orange while the model-\nimplied proportions are the black circles. The dashed line is\nthe model-implied average survival proportion.") +
-  annotate("text", x = c(8, 16 + 8, 32 + 8), y = 0, 
+  ggplot2::annotate("text", x = c(8, 16 + 8, 32 + 8), y = 0, 
            label = c("small tanks", "medium tanks", "large tanks")) +
-  theme_fivethirtyeight() +
-  theme(panel.grid = element_blank())
+  ggthemes::theme_fivethirtyeight() +
+  ggplot2::theme(panel.grid = element_blank())
 ```
 
 Here is our version of Figure 12.2.a. 
