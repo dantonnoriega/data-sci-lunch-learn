@@ -3,7 +3,6 @@ title: 'A Brief Introduction to Stan with R: rstanarm, brms, and rethinking'
 author: Danton Noriega-Goodwin
 output:
   html_document:
-    df_print: paged
     keep_md: true
     standalone: true
 editor_options:

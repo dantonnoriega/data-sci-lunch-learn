@@ -3,7 +3,6 @@ title: 'A Brief Introduction to Stan with R: rstanarm, brms, and rethinking'
 author: Danton Noriega-Goodwin
 output:
   html_document:
-    df_print: paged
     keep_md: true
     standalone: true
 editor_options:
@@ -87,11 +86,19 @@ d %>%
   head(10)
 ```
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["density"],"name":[1],"type":["int"],"align":["right"]},{"label":["pred"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["size"],"name":[3],"type":["fctr"],"align":["left"]},{"label":["surv"],"name":[4],"type":["int"],"align":["right"]},{"label":["propsurv"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"10","2":"no","3":"big","4":"9","5":"0.9","_rn_":"1"},{"1":"10","2":"no","3":"big","4":"10","5":"1.0","_rn_":"2"},{"1":"10","2":"no","3":"big","4":"7","5":"0.7","_rn_":"3"},{"1":"10","2":"no","3":"big","4":"10","5":"1.0","_rn_":"4"},{"1":"10","2":"no","3":"small","4":"9","5":"0.9","_rn_":"5"},{"1":"10","2":"no","3":"small","4":"9","5":"0.9","_rn_":"6"},{"1":"10","2":"no","3":"small","4":"10","5":"1.0","_rn_":"7"},{"1":"10","2":"no","3":"small","4":"9","5":"0.9","_rn_":"8"},{"1":"10","2":"pred","3":"big","4":"4","5":"0.4","_rn_":"9"},{"1":"10","2":"pred","3":"big","4":"9","5":"0.9","_rn_":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
+```
+##    density pred  size surv propsurv
+## 1       10   no   big    9      0.9
+## 2       10   no   big   10      1.0
+## 3       10   no   big    7      0.7
+## 4       10   no   big   10      1.0
+## 5       10   no small    9      0.9
+## 6       10   no small    9      0.9
+## 7       10   no small   10      1.0
+## 8       10   no small    9      0.9
+## 9       10 pred   big    4      0.4
+## 10      10 pred   big    9      0.9
+```
 
 ```r
 d <- d %>%
