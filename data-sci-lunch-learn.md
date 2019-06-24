@@ -32,8 +32,6 @@ editor_options:
 
 - Code for this case study is drawn primarily from two sources
   - McElreath, Chapter 12 code
-    - He sent me his code after I purchased his book (and the pdf!)
-    - Can also get draft versions of code [from the draft of the upcoming 2nd edition of his book](http://xcelab.net/rmpubs/sr2/code.txt)
   - Solomon Kurz, Chapter 12 code from his online book [Statistical Rethinking with brms, ggplot2, and the tidyverse](https://bookdown.org/ajkurz/Statistical_Rethinking_recoded/)
     - It goes through McElreath's book doing the models using `brms` and the `tidyverse`
     
@@ -113,7 +111,7 @@ Here's the formula for the un-pooled model in which each `tank` gets its own int
 \alpha_{\text{tank}} & \sim \text{Normal} (0, 5)
 \end{align*}
 
-And $n_i = \text{density}_i$. Now we'll fit this simple aggregated binomial model (see Chapter 10 of Kunz or McElreath).
+And $n_i = \text{density}_i$. Now we'll fit this simple aggregated binomial model (see Chapter 10 of Kurz or McElreath).
 
 Building models with `rethinking` requires being explicit and specific about model parameters, emulating the way it is written out in mathematical notation.
 
