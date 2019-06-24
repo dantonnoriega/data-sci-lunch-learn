@@ -23,7 +23,7 @@ editor_options:
 
 ## Case Study: Multi-level Tadpoles
 
-- Idea blatently stolen from Chapter 12 of (my favorite statistics) book [Stastical Rethinking](https://xcelab.net/rm/statistical-rethinking/) by Richard McElreath
+- Comes from Chapter 12 of (my favorite statistics) book [Stastical Rethinking](https://xcelab.net/rm/statistical-rethinking/) by Richard McElreath
   - See the [online lecture](https://www.youtube.com/watch?v=AALYPv5xSos&t=3140s), which is part of his [Winter 2019 class](https://www.youtube.com/playlist?list=PLDcUM9US4XdNM4Edgs7weiyIguLSToZRI) plus [the slides](https://speakerdeck.com/rmcelreath)
   - More inspiration from McElreath's blog post [Multilevel Regression as Default](http://elevanth.org/blog/2017/08/24/multilevel-regression-as-default/)
 

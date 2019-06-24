@@ -1,15 +1,6 @@
----
-title: 'A Brief Introduction to Stan with R: rstanarm, brms, and rethinking'
-author: Danton Noriega-Goodwin
-output:
-  html_document:
-    keep_md: true
-    standalone: true
-editor_options:
-  chunk_output_type: console
----
+# A Brief Introduction to Stan with R: rstanarm, brms, and rethinking
 
-# Overview
+## Overview
 
 - [Stan](https://mc-stan.org) 
   - Probabilistic programming language written in C++
@@ -23,7 +14,7 @@ editor_options:
 
 ## Case Study: Multi-level Tadpoles
 
-- Idea blatently stolen from Chapter 12 of (my favorite statistics) book [Stastical Rethinking](https://xcelab.net/rm/statistical-rethinking/) by Richard McElreath
+- Comes from Chapter 12 of (my favorite statistics) book [Stastical Rethinking](https://xcelab.net/rm/statistical-rethinking/) by Richard McElreath
   - See the [online lecture](https://www.youtube.com/watch?v=AALYPv5xSos&t=3140s), which is part of his [Winter 2019 class](https://www.youtube.com/playlist?list=PLDcUM9US4XdNM4Edgs7weiyIguLSToZRI) plus [the slides](https://speakerdeck.com/rmcelreath)
   - More inspiration from McElreath's blog post [Multilevel Regression as Default](http://elevanth.org/blog/2017/08/24/multilevel-regression-as-default/)
 
@@ -32,8 +23,6 @@ editor_options:
 
 - Code for this case study is drawn primarily from two sources
   - McElreath, Chapter 12 code
-    - He sent me his code after I purchased his book (and the pdf!)
-    - Can also get draft versions of code [from the draft of the upcoming 2nd edition of his book](http://xcelab.net/rmpubs/sr2/code.txt)
   - Solomon Kurz, Chapter 12 code from his online book [Statistical Rethinking with brms, ggplot2, and the tidyverse](https://bookdown.org/ajkurz/Statistical_Rethinking_recoded/)
     - It goes through McElreath's book doing the models using `brms` and the `tidyverse`
     
@@ -113,7 +102,7 @@ Here's the formula for the un-pooled model in which each `tank` gets its own int
 \alpha_{\text{tank}} & \sim \text{Normal} (0, 5)
 \end{align*}
 
-And $n_i = \text{density}_i$. Now we'll fit this simple aggregated binomial model (see Chapter 10 of Kunz or McElreath).
+And $n_i = \text{density}_i$. Now we'll fit this simple aggregated binomial model (see Chapter 10 of Kurz or McElreath).
 
 Building models with `rethinking` requires being explicit and specific about model parameters, emulating the way it is written out in mathematical notation.
 
