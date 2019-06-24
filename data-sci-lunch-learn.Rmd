@@ -4,7 +4,7 @@ author: Danton Noriega-Goodwin
 output:
   html_document:
     keep_md: true
-    standalone: true
+    self_contained: true
 editor_options:
   chunk_output_type: console
 ---
