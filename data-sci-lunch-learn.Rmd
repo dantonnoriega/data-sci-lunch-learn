@@ -96,7 +96,7 @@ Here's the formula for the un-pooled model in which each `tank` gets its own int
 \alpha_{\text{tank}} & \sim \text{Normal} (0, 5)
 \end{align*}
 
-And $n_i = \text{density}_i$. Now we'll fit this simple aggregated binomial model (see Chapter 10 of Kunz or McElreath).
+And $n_i = \text{density}_i$. Now we'll fit this simple aggregated binomial model (see Chapter 10 of Kurz or McElreath).
 
 Building models with `rethinking` requires being explicit and specific about model parameters, emulating the way it is written out in mathematical notation.
 
