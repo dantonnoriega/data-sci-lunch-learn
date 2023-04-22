@@ -96,11 +96,13 @@ d <- d %>%
 
 Here's the formula for the un-pooled model in which each `tank` gets its own intercept ("fixed effects").
 
+```math
 \begin{align*}
 \text{surv}_i        & \sim \text{Binomial} (n_i, p_i) \\
 \text{logit} (p_i)   & = \alpha_{\text{tank}_i} \\
 \alpha_{\text{tank}} & \sim \text{Normal} (0, 5)
 \end{align*}
+```
 
 And $n_i = \text{density}_i$. Now we'll fit this simple aggregated binomial model (see Chapter 10 of Kurz or McElreath).
 
@@ -317,6 +319,7 @@ posterior %>%
 
 The formula for the multilevel alternative is
 
+```math
 \begin{align*}
 \text{surv}_i        & \sim \text{Binomial} (n_i, p_i) \\
 \text{logit} (p_i)   & = \alpha_{\text{tank}_i} \\
@@ -324,6 +327,7 @@ The formula for the multilevel alternative is
 \alpha               & \sim \text{Normal} (0, 1) \\
 \sigma               & \sim \text{HalfCauchy} (0, 1)
 \end{align*}
+```
 
 `rethinking` random effects models are specified by assigning *hyperparameters* to original prior: `a_tank[tank] ~ normal(0,5)` becomes `a_tank[tank] ~ normal(a, sigma)` where `a` and `sigma` are the parameters for each tank's intercepts. However, these parameters themselves have priors aka *hyperpriors*. This adds a *second* level to the model---hence, it is a *multilevel* model.
 
