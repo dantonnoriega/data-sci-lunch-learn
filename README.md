@@ -1,7 +1,5 @@
 # A Brief Introduction to Stan with R: rstanarm, brms, and rethinking
 
-A rendered html post can be found [here](https://danton.updog.co/posts/data-sci-lunch-learn.html).
-
 ## Overview
 
 - [Stan](https://mc-stan.org) 
