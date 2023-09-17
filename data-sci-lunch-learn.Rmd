@@ -1,12 +1,7 @@
 ---
-title: 'A Brief Introduction to Stan with R: rstanarm, brms, and rethinking'
+title: 'A Brief Introduction to Multilevel Models and Stan with R: rstanarm, brms, and rethinking'
 author: Danton Noriega-Goodwin
-output:
-  html_document:
-    keep_md: true
-    self_contained: true
-editor_options:
-  chunk_output_type: console
+output: github_document
 ---
 
 # Overview
